@@ -13,27 +13,29 @@ public class Main {
     StringBuilder sb= new StringBuilder();
     //StringTokenizer st;
     
-    //int N = Integer.parseInt(br.readLine());
+    //long N = Long.parseLong(br.readLine());
     String str = br.readLine();
     String[] temps = str.split(" ");
     
-    double A = Double.parseDouble(temps[0]); // 고정비용
-    double B = Double.parseDouble(temps[1]); // 가변비용
-    double C = Double.parseDouble(temps[2]); // 노트북가격
-    
+    long A = Long.parseLong(temps[0]); // 낮 +A
+    long B = Long.parseLong(temps[1]); // 밤 -B
+    long V = Long.parseLong(temps[2]); // 높이 
 
-    double breakPoint = -1L;
+   long current = 0;
+   
+   long day = 1;
+   while (true) {
+     
+     current += A;
+     
+     if (current >= V) break;
+     
+     current -= B; 
+     
+     day++;
+   }
     
-    if (B < C) {
-      breakPoint =  A / (C - B) + 1;
-      
-    }
-    
-    System.out.println((int)breakPoint);
-    
-    
-    
-    
+   System.out.println(day);
     
   }
 }
