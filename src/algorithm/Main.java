@@ -2,6 +2,7 @@ package algorithm;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Main {
   
@@ -13,29 +14,42 @@ public class Main {
     StringBuilder sb= new StringBuilder();
     //StringTokenizer st;
     
-    //long N = Long.parseLong(br.readLine());
-    String str = br.readLine();
-    String[] temps = str.split(" ");
+    int T = Integer.parseInt(br.readLine());
+    ArrayList<Long> result = new ArrayList<>();
+    for (int i = 0 ; i < T ; i++) {
     
-    long A = Long.parseLong(temps[0]); // 낮 +A
-    long B = Long.parseLong(temps[1]); // 밤 -B
-    long V = Long.parseLong(temps[2]); // 높이 
-
-   long current = 0;
-   
-   long day = 1;
-   while (true) {
-     
-     current += A;
-     
-     if (current >= V) break;
-     
-     current -= B; 
-     
-     day++;
-   }
+      String str = br.readLine();
+      String[] temp = str.split(" ");
+      long x = Long.parseLong(temp[0]);
+      long y = Long.parseLong(temp[1]);
+      
+      long distance = y - x - 1;
+      long cnt = 1;
+      
+      long k = 0;
+      
+      while (distance > 0) {
+        
+        if (distance > k) {
+          distance -= ++k;
+        } else if (distance == k) {
+          distance -= k;
+        } else if (distance < k){
+          distance -= --k;
+        }
+        
+        cnt++;
+        
+      }
+      result.add((long) cnt);
+      
+    }
     
-   System.out.println(day);
+    for (Long o : result) {
+      System.out.println(o);
+    }
+    
     
   }
 }
+
