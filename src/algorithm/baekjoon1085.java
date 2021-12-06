@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.Scanner;
 
-public class Main {
+public class baekjoon1085 {
   
   static int isPrime = 1;
   
