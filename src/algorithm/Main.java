@@ -1,55 +1,38 @@
 package algorithm;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
   
   public static void main(String[] args) throws Exception {
     
-
-    
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    StringBuilder sb= new StringBuilder();
-    //StringTokenizer st;
-    
-    int T = Integer.parseInt(br.readLine());
-    ArrayList<Long> result = new ArrayList<>();
-    for (int i = 0 ; i < T ; i++) {
-    
-      String str = br.readLine();
-      String[] temp = str.split(" ");
-      long x = Long.parseLong(temp[0]);
-      long y = Long.parseLong(temp[1]);
+      Scanner sc = new Scanner(System.in);
+      StringBuilder sb = new StringBuilder();
       
-      long distance = y - x - 1;
-      long cnt = 1;
+      String[] str = sc.nextLine().split(" ");
+      long M = Long.parseLong(str[0]); // 이상
+      long N = Long.parseLong(str[1]); // 이하
+      long prime = 1;
       
-      long k = 0;
-      
-      while (distance > 0) {
+      for (long i = M ; i <= N ; i++) {
+        if (i == 1) continue;
+        prime = 1;
         
-        if (distance > k) {
-          distance -= ++k;
-        } else if (distance == k) {
-          distance -= k;
-        } else if (distance < k){
-          distance -= --k;
+        for (long j = 2 ; j <= Math.sqrt(i) ; j++) {
+          if (i % j == 0) {
+            prime = -1;
+            break;
+          }
+          
+        }
+        if (prime == 1) {
+         sb.append(i).append("\n"); 
         }
         
-        cnt++;
-        
       }
-      result.add((long) cnt);
+
+      System.out.println(sb);
       
-    }
-    
-    for (Long o : result) {
-      System.out.println(o);
-    }
-    
-    
   }
 }
 

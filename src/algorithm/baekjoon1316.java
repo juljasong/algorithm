@@ -11,7 +11,7 @@ public class baekjoon1316 {
 
     
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    StringBuilder sb= new StringBuilder();
+    StringBuilder sb = new StringBuilder();
     //StringTokenizer st;
     
     int N = Integer.parseInt(br.readLine());
