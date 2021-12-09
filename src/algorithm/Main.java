@@ -10,17 +10,15 @@ public class Main {
       StringBuilder sb = new StringBuilder();
       
       int n = sc.nextInt();
-      System.out.println(factorial(n));
+      System.out.println(fibonacci(n));
       
   }
   
-  static int factorial(int n) {
+  static int fibonacci(int n) {
     
-    if (n < 2) {
-      return 1;
-    }
+    if (n <= 1) return n;
     
-    return factorial(n-1) * n;
+    return fibonacci(n-1) + fibonacci(n-2);
   }
 
   
