@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.Scanner;
 
-public class Main {
+public class baekjoon3053 {
   
   public static void main(String[] args) throws Exception {
     
